@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/rafaella/Desktop/Supermarket.API/dotnet-core-learning.csproj",
+      "projectUniqueName": "/Users/rafaella/Desktop/dotnetcore-tutorial/Supermarket.API/dotnet-core-learning.csproj",
       "projectName": "dotnet-core-learning",
-      "projectPath": "/Users/rafaella/Desktop/Supermarket.API/dotnet-core-learning.csproj",
+      "projectPath": "/Users/rafaella/Desktop/dotnetcore-tutorial/Supermarket.API/dotnet-core-learning.csproj",
       "packagesPath": "/Users/rafaella/.nuget/packages/",
-      "outputPath": "/Users/rafaella/Desktop/Supermarket.API/obj/",
+      "outputPath": "/Users/rafaella/Desktop/dotnetcore-tutorial/Supermarket.API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/rafaella/.nuget/NuGet/NuGet.Config"
