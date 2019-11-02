@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Supermarket.API.Domain.Repositories;
@@ -9,6 +7,8 @@ using Supermarket.API.Domain.Services;
 using Supermarket.API.Persistence.Contexts;
 using Supermarket.API.Persistence.Repositories;
 using Supermarket.API.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 namespace Supermarket.API
 {
@@ -23,8 +23,8 @@ namespace Supermarket.API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddRazorPages();
             services.AddDbContext<AppDbContext>(options => {
                 options.UseInMemoryDatabase("supermarket-api-in-memory");
             });
@@ -33,7 +33,7 @@ namespace Supermarket.API
             services.AddScoped<ICategoryService, CategoryService>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -45,8 +45,13 @@ namespace Supermarket.API
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
-            app.UseMvc();
+        app.UseStaticFiles();
+            app.UseRouting();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
+        });
         }
     }
 }
